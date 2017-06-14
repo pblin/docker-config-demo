@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+    consul:
+        image: consul:0.8.4
+        volumes:
+            - .:/consul
+        command: consul agent -config-dir /consul/config
+        ports:
+            - "8500:8500"
+        networks:
+            - demo
+
+networks:
+    demo:
+        driver: bridge
+    

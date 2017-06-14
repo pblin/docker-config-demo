@@ -26,7 +26,7 @@ var port        = config.default.port;
  *************/
 
 var content = `<html><body>
-	<h1>This homepage was made just for you by</h1>
+	<h1>This homepage brought to you by...</h1>
 	<h3><i>${firstName} ${lastName}</i></h3>
 	<img src="${gravatarUrl}">
 </body></html>`;

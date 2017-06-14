@@ -6,14 +6,15 @@ services:
         working_dir: /usr/src/app
         volumes:
             - .:/usr/src/app
+            - ./templates:/templates
         command: scripts/entrypoint.sh node index.js
         ports:
-            - "8080:80"
+            - "8081:80"
         environment:
             - PORT=80
             - CONSUL_ADDRESS=consul
             - CONSUL_PORT=8500
-            - ENVIRONMENT=development
+            - ENVIRONMENT=production
 
 networks:
     default:

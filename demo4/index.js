@@ -3,22 +3,30 @@
  ******************/
 
 var http = require('http');
+var fs = require('fs');
+var ini = require('ini');
+
+/*******************
+ *  Configuration  *
+ *******************/
+
+var config = ini.parse(fs.readFileSync('/etc/app/config.ini', 'utf-8'));
 
 /***************
  *  Variables  *
  ***************/
 
-var firstName   = process.env.FIRST_NAME;
-var lastName    = process.env.LAST_NAME;
-var gravatarUrl = process.env.GRAVATAR_URL;
-var port        = process.env.PORT;
-var greeting    = process.env.PAGE_GREETING;
+var firstName   = config.default.first_name;
+var lastName    = config.default.last_name;
+var gravatarUrl = config.default.gravatar_url;
+var port        = config.default.port;
+var greeting    = config.default.page_greeting;
 
 /*************
  *  Content  *
  *************/
 
-var content = `<html><head><title>Demo 3</title></head><body>
+var content = `<html><head><title>Demo 4</title></head><body>
 	<h1>${greeting}</h1>
 	<h3><i>${firstName} ${lastName}</i></h3>
 	<img src="${gravatarUrl}">

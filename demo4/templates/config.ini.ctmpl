@@ -1,0 +1,6 @@
+[default]
+first_name    = {{printf "%s/first_name" (env "ENVIRONMENT") | key}}
+last_name     = {{printf "%s/last_name" (env "ENVIRONMENT") | key}}
+gravatar_url  = {{printf "%s/gravatar_url" (env "ENVIRONMENT") | key}}
+page_greeting = {{key "global/page_greeting"}}
+port          = {{ env "PORT" }}
