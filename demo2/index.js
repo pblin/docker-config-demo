@@ -3,22 +3,30 @@
  ******************/
 
 var http = require('http');
+var fs = require('fs');
+var ini = require('ini');
+
+/*******************
+ *  Configuration  *
+ *******************/
+
+var config = ini.parse(fs.readFileSync('/etc/app/config.ini', 'utf-8'));
 
 /***************
  *  Variables  *
  ***************/
 
-var firstName   = process.env.FIRST_NAME;
-var lastName    = process.env.LAST_NAME;
-var gravatarUrl = process.env.GRAVATAR_URL;
-var port        = process.env.PORT;
+var firstName   = config.default.first_name;
+var lastName    = config.default.last_name;
+var gravatarUrl = config.default.gravatar_url;
+var port        = config.default.port;
 
 /*************
  *  Content  *
  *************/
 
 var content = `<html><body>
-	<h1>This is an environmental homepage</h1>
+	<h1>This homepage was made just for you by</h1>
 	<h3><i>${firstName} ${lastName}</i></h3>
 	<img src="${gravatarUrl}">
 </body></html>`;

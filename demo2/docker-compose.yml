@@ -6,11 +6,11 @@ services:
         working_dir: /usr/src/app
         volumes:
             - .:/usr/src/app
-        command: node index.js
+        command: scripts/entrypoint.sh node index.js
         ports:
             - "8080:80"
         environment:
-            - FIRST_NAME
-            - LAST_NAME
+            - FIRST_NAME=Ryan
+            - LAST_NAME=VanGundy
             - GRAVATAR_URL=https://m.popkey.co/40cfa3/M7o6x.gif
             - PORT=80

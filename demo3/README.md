@@ -1,7 +1,7 @@
 # Configuration in Docker
-## Demo 1
+## Demo 2
 
-This demo illustrates a basic application configured using only environment variables.
+This demo illustrates a basic application configured using a templated config file.
 
 ### Launching
 
