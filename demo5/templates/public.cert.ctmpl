@@ -1,0 +1,1 @@
+{{ with secret "secret/certs" }}{{ .Data.cert }}{{ end }}

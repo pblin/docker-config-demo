@@ -1,0 +1,1 @@
+Vault configuration from https://github.com/tolitius/cault

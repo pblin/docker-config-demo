@@ -8,9 +8,9 @@ services:
             - .:/usr/src/app
         command: scripts/entrypoint.sh node index.js
         ports:
-            - "8080:80"
+            - "8081:80"
         environment:
-            - FIRST_NAME=Ryan
-            - LAST_NAME=VanGundy
-            - GRAVATAR_URL=https://m.popkey.co/40cfa3/M7o6x.gif
+            - FIRST_NAME=Keyboard
+            - LAST_NAME=Cat
+            - GRAVATAR_URL=https://media.giphy.com/media/10RhccNxPSaglW/giphy.gif
             - PORT=80

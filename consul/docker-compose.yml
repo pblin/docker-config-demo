@@ -3,15 +3,33 @@ version: '2'
 services:
     consul:
         image: consul:0.8.4
+        command: consul agent -config-dir /consul/config
+        hostname: consul
+        ports:
+            - "8400:8400"
+            - "8500:8500"
+            - "8600:53/udp"
         volumes:
             - .:/consul
-        command: consul agent -config-dir /consul/config
+        networks:
+            - demo
+    vault:
+        image: vault
+        command: /wait-for-it.sh -t 20 -h consul -p 8500 -s -- vault server -config=/config/vault.hcl
+        depends_on:
+            - consul
+        hostname: vault
+        environment:
+            VAULT_ADDR: http://127.0.0.1:8200
         ports:
-            - "8500:8500"
+            - 8200:8200
+        volumes:
+            - ./tools/wait-for-it.sh:/wait-for-it.sh
+            - ./config/vault/vault.hcl:/config/vault.hcl
+            - ./config/vault/policies:/policies
         networks:
             - demo
 
 networks:
     demo:
         driver: bridge
-    

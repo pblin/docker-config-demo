@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+    app:
+        build: .
+        working_dir: /usr/src/app
+        volumes:
+            - .:/usr/src/app
+            - ./templates:/templates
+        command: scripts/entrypoint.sh node index.js
+        ports:
+            - "8443:443"
+        environment:
+            - PORT=443
+            - CONSUL_ADDRESS=consul
+            - CONSUL_PORT=8500
+            - VAULT_ADDR=http://vault:8200
+            - VAULT_TOKEN
+            - ENVIRONMENT=production
+
+networks:
+    default:
+        external:
+            name: consul_demo
+    

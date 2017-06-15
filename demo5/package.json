@@ -1,0 +1,11 @@
+{
+  "name": "demo4",
+  "version": "1.0.0",
+  "description": "Demos templating a configuration file",
+  "main": "index.js",
+  "author": "Ryan VanGundy",
+  "license": "ISC",
+  "dependencies": {
+    "ini": "^1.3.4"
+  }
+}
